@@ -1,7 +1,7 @@
 # Wheelchair Object Detection
 
 ## Introduction
-For wheelchair users, especially power wheelchair users, it can be hard to see what's behind the chair, especially when backing up or turning, and since a power wheelchair can weigh upwards of 350 lbs, getting run over by a power wheelchair is very painful. The aim of this project is to solve that problem by creating a low-cost device that can detect obstacles and warn the wheelchair user so they don't hit objects or people. 
+For wheelchair users, especially power wheelchair users, it can be hard to see what's behind the chair, especially when backing up or turning, and since a power wheelchair can weigh upwards of 350 lbs, getting run over by a power wheelchair is very painful. The aim of this project is to solve that problem by creating a low-cost device that can detect obstacles and warn the wheelchair user so they don't hit objects or people, similar to how a car has object detection when backing up. 
 
 ## Materials
 
