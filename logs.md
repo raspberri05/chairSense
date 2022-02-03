@@ -56,3 +56,9 @@ Reorganized graphics on OLED display to fit everything
 Now it needs to be tested on the chair, and then maybe add a beeper depending on distance away from object
 # 12/18/2021
 Tested the arduino on my chair. Added 5 cm to distance in code to account for how far back the sensors are on the chair so that the distances are correct.
+
+# 01/05/2022 - 01/26/2022
+I created an informal reasearch/summary paper and made a demo video of the device so the public can learn about it. Now I will continue to improve the device and attempt to productize it. 
+
+# 02/02/2022
+I began the first of the improvements: I successfully added a buzzer that sounds when an obstacle is too close to either of the ultrasonic sensors. The buzzer may be defective because it is making a weird hissing noise, the code needs to be refactored to use more methods to be more readable, and the display is having rendering issues due to the buzzer code. 
