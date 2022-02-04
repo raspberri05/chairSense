@@ -1,13 +1,11 @@
-
-// Import required libraries
 #include <ArducamSSD1306.h>    // Modification of Adafruit_SSD1306 for ESP8266 compatibility
 #include <Adafruit_GFX.h>   // Needs a little change in original Adafruit library (See README.txt file)
 #include <Wire.h>           // For I2C comm, but needed for not getting compile error
 
 /*
 HardWare I2C pins
-A4   SDA
-A5   SCL
+20   SDA
+21   SCL
 */
 
 // Pin definitions
@@ -40,46 +38,7 @@ void setup(void)
   display.setTextColor(WHITE);
 }
 
-int findDistance(int duration, int distance, int trig, int echo, int start){
- digitalWrite(trig, LOW); 
- delayMicroseconds(2); 
- digitalWrite(trig, HIGH); 
- delayMicroseconds(10); 
- digitalWrite(trig, LOW); 
- duration = pulseIn(echo, HIGH); 
- distance = (duration*.0343)/2 - 5;
- if (distance < 0) {
-  distance = 0;
- }
- if (distance <= 30 && distance > 5) {
-  display.setCursor(start,30);
-  display.println(distance);
- } else if (distance <= 5) {
-  display.setCursor(start,30);
-  display.println("STOP!");
-  while (distance <= 5) {
-    tone(buzzer, 1000);
-    digitalWrite(trig, LOW); 
-    delayMicroseconds(2); 
-    digitalWrite(trig, HIGH); 
-    delayMicroseconds(10); 
-    digitalWrite(trig, LOW); 
- duration = pulseIn(echo, HIGH); 
- distance = (duration*.0343)/2 - 5;
-  }
-  noTone(buzzer);
- }
-
- if (distance > 5) {
-  display.setCursor(start+15, 30);
-  display.println(" cm");
- }
-
-}
-
-
-void loop() {
-  noTone(buzzer);
+void displaySetup() {
   display.clearDisplay();
   display.setCursor(5,0);
   display.println("BACK|RIGHT");
@@ -91,8 +50,42 @@ void loop() {
   display.println("    |     ");
   display.setCursor(5,60);
   display.println("    |     ");
-  findDistance(durationB, distanceB, trigB, echoB, 0);
-  findDistance(durationS, distanceS, trigS, echoS, 64);
+}
+
+int calculateDistance(int duration, int distance, int trig, int echo) {
+  digitalWrite(trig, LOW); 
+  delayMicroseconds(2); 
+  digitalWrite(trig, HIGH); 
+  delayMicroseconds(10); 
+  digitalWrite(trig, LOW); 
+  duration = pulseIn(echo, HIGH); 
+  distance = (duration*.0343)/2 - 5;
+  return distance;
+  }
+
+void detectObstacle(int duration, int distance, int trig, int echo, int start) {
+  distance = calculateDistance(duration, distance, trig, echo);
+  if (distance < 0) {
+    distance = 0;
+  }
+  if (distance <= 30 && distance > 5) {
+    display.setCursor(start+15, 30);
+    display.println(" cm");
+    display.setCursor(start, 30);
+    display.println(distance);
+  } 
+  else if (distance <= 5) {
+    display.setCursor(start,30);
+    display.println("STOP!   ");
+    tone(buzzer,1000);
+  }
+}
+
+void loop() {
+  noTone(buzzer);
+  displaySetup();
+  detectObstacle(durationB, distanceB, trigB, echoB, 0);
+  detectObstacle(durationS, distanceS, trigS, echoS, 64);
   display.display();
   //5 or 64
   // +15 px to get from num to cm
