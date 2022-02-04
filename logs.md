@@ -12,21 +12,21 @@ Used piecewise square root function to implement varying flicker time based on d
 Wanted to add a sudden jarring noise to alert the user when they are just about to make contact with the object
 In addition to what I already heard, I added a (passive) buzzer to buzz at 800 kHz if the sensor is 8 cm or less from the object
 Used the high pitch of 800 kHz rather than a lower pitch to be a more jarring noise to instantly alert the user of possible contact and hopefully result in split-second action
-# 10/3/2021
+# 10/03/2021
 Narrow range
 Where behind you?
 Extend idea to have 3 ultrasonic sensors
 Maybe a screen to show where you 
 3 ultrasonic sensors -brighter means that’s where the obstacle is 
 What to do next - use 3 ultrasonic sensors
-# 10/6/2021
+# 10/06/2021
 Began the process of reengineering the design to be able to be fitted onto a wheelchair
 Main circuit will be in the back of the chair, the led will be on a half breadboard at the front near the wheelchair controller
-# 10/7/2021
+# 10/07/2021
 Problem: wire was too short to reach across my chair, so I daisychained many wires together.
 I may eventually just get a long wire that can be cut to a desired length for future prototypse
 Next step is to actually put it on the wheelchair.
-# 10/8/2021
+# 10/08/2021
 Fitted first prototype on chair
 The circuit functioned as expected. I slightly changed the ultrasonic sensor distances after testing out the circuit to account for it being on the chair. I will test that tomorrow
 I need to find a better way to attach the board to the back of my chair, but not super important right now
@@ -56,3 +56,12 @@ Reorganized graphics on OLED display to fit everything
 Now it needs to be tested on the chair, and then maybe add a beeper depending on distance away from object
 # 12/18/2021
 Tested the arduino on my chair. Added 5 cm to distance in code to account for how far back the sensors are on the chair so that the distances are correct.
+
+# 01/05/2022 - 01/26/2022
+I created an informal reasearch/summary paper and made a demo video of the device so the public can learn about it. Now I will continue to improve the device and attempt to productize it. 
+
+# 02/02/2022
+I began the first of the improvements: I successfully added a buzzer that sounds when an obstacle is too close to either of the ultrasonic sensors. The buzzer may be defective because it is making a weird hissing noise, the code needs to be refactored to use more methods to be more readable, and the display is having rendering issues due to the buzzer code. 
+
+#02/03/2021
+I replaced the buzzer, refactored the code to make it much more simple and readable, and fixed the display rendering issues. The next step is most likely to test it out.
