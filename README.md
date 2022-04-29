@@ -1,4 +1,4 @@
-# Wheelchair Object Detection
+# chairSense
 
 ## Overview
 For wheelchair users, especially power wheelchair users, it can be hard to see what's behind the chair, especially when backing up or turning, which can be dangerous because there is a high potential to hit an object or person. The aim of this project is to solve that problem by creating a low-cost device that can detect obstacles and warn the wheelchair user so they don't hit objects or people, similar to how a car has object detection when backing up. 
@@ -15,4 +15,4 @@ For wheelchair users, especially power wheelchair users, it can be hard to see w
 [Mini OLED Display](https://www.amazon.com/UCTRONICS-SSD1306-Self-Luminous-Display-Raspberry/dp/B072Q2X2LL/ref=sr_1_3keywords=0.96+arduino+display&qid=1639941936&sr=8-3): This bright display is useful to clearly display the distance from the object.
 
 ## Demos
-Coming Soon!
+[chairSense Demo (Youtube Link)](https://www.youtube.com/watch?v=z72_hVvBnQc&t=23s)
